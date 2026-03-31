@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --c-decaf: #FF5C00;
+  --c-serious: #2A292B;
+  --c-dune-1: #F9F4ED;
+  --c-dune-2: #EDE8E1;
+  --c-dune-3: #D0CBC6;
+  --c-dune-4: #ADA9A2;
+  --c-dune-5: #7D7A79;
+  --c-dune-6: #514D4B;
+  --c-ghost: #fff;
+  --c-yellow: #FFF59E;
+
+  --color-bg: var(--c-ghost);
+  --color-bg-accent: var(--c-dune-1);
+  --color-titles: var(--c-serious);
+  --color-text: var(--c-dune-6);
+  --color-accent: var(--c-decaf);
+  --color-links: var(--c-decaf);
+  --color-hdr-bg: var(--color-bg-accent);
+
+  --color-placeholder: var(--c-dune-1);
+  --color-line: var(--c-dune-3);
+
+  --font-titles: 'Obviously Variable', sans-serif;
+  --font-body: 'Elza Text', sans-serif;
+
+  --text-size: 1rem;
+  --text-height: 1.6;
+
+  --site-width: 92%;
+  --site-margin: 4vw;
+  --max-width: 1302px;
+
+  --hdr-height: 5rem;
+
+  --ease: cubic-bezier(.19,1,.22,1);
+
+  --section-pt: 6rem;
+  --section-pb: 6rem;
+  --block-mb: 1rem;
+}
+
+[data-color="invert"] {
+  --color-bg: var(--c-decaf);
+  --color-titles: var(--c-ghost);
+  --color-text: var(--c-ghost);
+  --color-links: var(--c-ghost);
+  --color-hdr-bg: var(--c-decaf);
+  --color-accent: var(--c-ghost);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
+  font-family: var(--font-titles);
+  color: var(--color-titles);
+  line-height: 0.84;
+  letter-spacing: -0.015em;
+  font-weight: 660;
+}
+
+.btn {
+  @apply px-5 py-4 bg-[var(--color-accent)] rounded-[0.6875rem] text-[var(--color-bg)] text-center inline-block text-base leading-[1.4] uppercase font-semibold tracking-[0.07em] cursor-pointer transition-all duration-200 ease-[var(--ease)] border-none outline-none no-underline;
+}
+
+.btn:hover {
+  @apply bg-[var(--color-titles)] text-[var(--color-bg)];
+  animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0px); }
+  25% { transform: translateY(-4px); }
+  50% { transform: translateY(2px); }
+  75% { transform: translateY(-2px); }
+  100% { transform: translateY(0px); }
+}
+
+.inner {
+  @apply w-[92%] max-w-[81.25rem] mx-auto;
+}
+
+.section {
+  @apply py-[6rem] relative overflow-hidden;
+}
+
+@media (max-width: 640px) {
+  .section { @apply py-[4rem]; }
+}
